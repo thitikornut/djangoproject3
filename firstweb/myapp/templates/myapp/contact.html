@@ -1,0 +1,113 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}ติดต่อเรา - Happy Paws{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<section class="bg-dark text-white py-5 text-center">
+    <div class="container py-3">
+        <h1 class="display-5 fw-bold text-warning">ติดต่อเรา</h1>
+        <p class="lead text-light mb-0">สอบถามข้อมูลเพิ่มเติม จองคิวฝากเลี้ยง หรือแวะมาเยี่ยมชมสถานที่ได้ตลอดเวลาครับ</p>
+    </div>
+</section>
+
+<!-- Main Contact Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5">
+            
+            <!-- ฝั่งซ้าย: ข้อมูลติดต่อร้าน -->
+            <div class="col-lg-5">
+                <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border h-100">
+                    <h3 class="fw-bold mb-4 text-dark"><i class="fa-solid fa-paw text-warning me-2"></i>ข้อมูลร้าน Happy Paws</h3>
+                    
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="bg-warning-subtle text-dark p-3 rounded-circle me-3">
+                            <i class="fa-solid fa-location-dot fs-4 text-warning"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">ที่อยู่ร้าน</h6>
+                            <p class="text-muted mb-0">123/45 ถนนสุขุมวิท แขวงคลองเตย เขตคลองเตย กรุงเทพมหานคร 10110</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="bg-warning-subtle text-dark p-3 rounded-circle me-3">
+                            <i class="fa-solid fa-phone fs-4 text-warning"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">เบอร์โทรศัพท์</h6>
+                            <p class="text-muted mb-0">081-234-5678, 02-123-4567</p>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start mb-4">
+                        <div class="bg-warning-subtle text-dark p-3 rounded-circle me-3">
+                            <i class="fa-solid fa-clock fs-4 text-warning"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">เวลาทำการ</h6>
+                            <p class="text-muted mb-0">เปิดบริการทุกวัน: 08:00 - 19:00 น.</p>
+                            <small class="text-success fw-bold">* มีเจ้าหน้าที่ดูแลสุนัขตลอด 24 ชั่วโมง</small>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+
+                    <h6 class="fw-bold mb-3">ติดตามเราผ่านโซเชียลมีเดีย</h6>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-outline-primary rounded-circle"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-success rounded-circle"><i class="fa-brands fa-line"></i></a>
+                        <a href="#" class="btn btn-outline-danger rounded-circle"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ฝั่งขวา: ฟอร์มส่งข้อความ -->
+            <div class="col-lg-7">
+                <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border">
+                    <h3 class="fw-bold mb-2">ส่งข้อความถึงเรา</h3>
+                    <p class="text-muted mb-4">หากมีข้อสงสัยหรือต้องการสอบถามรายละเอียดบริการ กรอกข้อมูลด้านล่างได้เลยครับ</p>
+                    
+                    <form action="#" method="post">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label fw-medium">ชื่อของคุณ</label>
+                                <input type="text" class="form-control rounded-3" id="name" placeholder="ระบุชื่อ-นามสกุล" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label fw-medium">เบอร์โทรศัพท์</label>
+                                <input type="tel" class="form-control rounded-3" id="phone" placeholder="08X-XXX-XXXX" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label fw-medium">อีเมล (ถ้ามี)</label>
+                                <input type="email" class="form-control rounded-3" id="email" placeholder="name@example.com">
+                            </div>
+                            <div class="col-12">
+                                <label for="subject" class="form-label fw-medium">หัวข้อที่ต้องการติดต่อ</label>
+                                <select class="form-select rounded-3" id="subject">
+                                    <option selected>สอบถามข้อมูลทั่วไป</option>
+                                    <option value="1">สอบถามคิวว่าง / จองห้องพัก</option>
+                                    <option value="2">สอบถามราคาและแพ็กเกจ</option>
+                                    <option value="3">แจ้งปัญหาการใช้งาน</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label fw-medium">ข้อความรายละเอียด</label>
+                                <textarea class="form-control rounded-3" id="message" rows="4" placeholder="พิมพ์ข้อความของคุณที่นี่..." required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-warning btn-lg fw-bold w-100 rounded-pill shadow-sm">
+                                    <i class="fa-solid fa-paper-plane me-2"></i>ส่งข้อความ
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

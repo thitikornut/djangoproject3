@@ -1,0 +1,68 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- ข้อมูลโปรไฟล์หลัก -->
+            <div class="card shadow-sm border-0 rounded-4 mb-4">
+                <div class="card-body p-4 p-md-5">
+                    <div class="d-flex align-items-center mb-4">
+                        <!-- ไอคอนโปรไฟล์ตัวอย่าง -->
+                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold me-3 fs-3" style="width: 64px; height: 64px;">
+                            {{ user.username|first|upper }}
+                        </div>
+                        <div>
+                            <h3 class="fw-bold mb-0">สวัสดีคุณ {{ user.first_name }} {{ user.last_name }}</h3>
+                            <p class="text-muted mb-0">@{{ user.username }}</p>
+                        </div>
+                    </div>
+
+                    <hr class="my-4 text-muted opacity-25">
+
+                    <!-- รายละเอียดข้อมูลสมาชิก -->
+                    <h5 class="fw-bold mb-3">ข้อมูลบัญชีผู้ใช้</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-3">
+                                <small class="text-muted d-block mb-1">ชื่อจริง - นามสกุล</small>
+                                <span class="fw-bold">{{ user.first_name }} {{ user.last_name }}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-3">
+                                <small class="text-muted d-block mb-1">อีเมล</small>
+                                <span class="fw-bold">{{ user.email }}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-3">
+                                <small class="text-muted d-block mb-1">ชื่อผู้ใช้งาน (Username)</small>
+                                <span class="fw-bold">{{ user.username }}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded-3">
+                                <small class="text-muted d-block mb-1">วันที่สมัครสมาชิก</small>
+                                <span class="fw-bold">{{ user.date_joined|date:"d M Y" }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ปุ่มการทำงาน -->
+                    <div class="d-flex flex-wrap gap-2 mt-4 pt-2">
+                        <a href="{% url 'services' %}" class="btn btn-primary px-4 py-2 rounded-3 fw-bold">
+                            <i class="bi bi-calendar-plus me-1"></i> จองคิวบริการ
+                        </a>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}" class="btn btn-outline-danger px-4 py-2 rounded-3">
+                            ออกจากระบบ
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,133 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}บริการของเรา - Happy Paws{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<div class="bg-warning bg-gradient text-dark py-5 mb-5 shadow-sm">
+    <div class="container text-center py-3">
+        <h1 class="fw-bold display-5 mb-2"><i class="fa-solid fa-paw me-2"></i>บริการของเรา</h1>
+        <p class="lead mb-0">เลือกบริการและนัดหมายเวลานำน้องหมาเข้ารับบริการกับเรา</p>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <!-- รายการบริการ -->
+    <div class="row g-4 mb-5">
+        {% for service in services %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 rounded-4 transition-hover">
+                    <div class="card-body p-4 text-center d-flex flex-column">
+                        <div class="display-4 text-warning mb-3">
+                            <i class="{{ service.icon_class }}"></i>
+                        </div>
+                        <h4 class="card-title fw-bold text-dark">{{ service.title }}</h4>
+                        <p class="card-text text-muted flex-grow-1 my-3">
+                            {{ service.description }}
+                        </p>
+                        <div class="border-top pt-3 mt-2">
+                            <h3 class="text-warning fw-bold mb-3">
+                                {{ service.price|floatformat:0 }} <small class="fs-6 text-muted">บาท</small>
+                            </h3>
+                            <!-- ปุ่มสคริปต์เลือกบริการและเลื่อนหน้าจออัตโนมัติ -->
+                            <button type="button" 
+                                    class="btn btn-outline-dark rounded-pill w-100 fw-bold select-service-btn" 
+                                    data-service-id="{{ service.id }}">
+                                จองบริการนี้
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12 text-center py-5">
+                <div class="p-5 bg-white rounded-4 shadow-sm">
+                    <i class="fa-solid fa-info-circle fa-3x text-muted mb-3"></i>
+                    <h4 class="text-muted">ยังไม่มีข้อมูลบริการในขณะนี้</h4>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <hr class="my-5">
+
+    <!-- แบบฟอร์มจองคิวนำหมาเข้ารับบริการ -->
+    <div id="booking-form" class="row justify-content-center pt-3">
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-header bg-dark text-white p-4 rounded-top-4 text-center">
+                    <h3 class="fw-bold mb-1"><i class="fa-solid fa-calendar-check me-2 text-warning"></i>แบบฟอร์มจองคิวนำหมาเข้ารับบริการ</h3>
+                    <p class="text-secondary small mb-0">กรอกข้อมูลและเลือกระบุวัน-เวลาที่สะดวกนำน้องหมามาที่ร้าน</p>
+                </div>
+                <div class="card-body p-4 p-md-5">
+                    <form method="POST">
+                        {% csrf_token %}
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label text-muted fw-bold">ชื่อสุนัข *</label>
+                                <input type="text" name="dog_name" class="form-control form-control-lg rounded-3 fs-6" placeholder="เช่น โกโก้, มอมแมม" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted fw-bold">สายพันธุ์ *</label>
+                                <input type="text" name="breed" class="form-control form-control-lg rounded-3 fs-6" placeholder="เช่น ชิวาวา, โกลเด้น" required>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label text-muted fw-bold">บริการที่ต้องการเข้ารับ *</label>
+                                <select id="service-select" name="service" class="form-select form-select-lg rounded-3 fs-6" required>
+                                    <option value="" selected disabled>-- เลือกบริการ --</option>
+                                    {% for service in services %}
+                                        <option value="{{ service.id }}">{{ service.title }} ({{ service.price|floatformat:0 }} บาท)</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label text-muted fw-bold">วันที่ต้องการเข้ารับบริการ *</label>
+                                <input type="date" name="booking_date" class="form-control form-control-lg rounded-3 fs-6" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted fw-bold">เวลาที่สะดวกนำมา *</label>
+                                <input type="time" name="booking_time" class="form-control form-control-lg rounded-3 fs-6" required>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label text-muted fw-bold">หมายเหตุ / สิ่งที่ต้องการเน้นย้ำพิเศษ</label>
+                                <textarea name="note" class="form-control rounded-3" rows="3" placeholder="ระบุเช่น น้องหมากลัวไดร์เป่าผม หรือตัดทรงเฉพาะ"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-warning btn-lg w-100 rounded-3 fw-bold text-dark shadow-sm">
+                                ยืนยันการจองคิวเข้ารับบริการ
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript สำหรับดักจับการกดปุ่มบริการ -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const buttons = document.querySelectorAll('.select-service-btn');
+        const selectDropdown = document.getElementById('service-select');
+        const bookingForm = document.getElementById('booking-form');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                const serviceId = this.getAttribute('data-service-id');
+                
+                // 1. เลือกตัวเลือกใน Dropdown อัตโนมัติ
+                selectDropdown.value = serviceId;
+
+                // 2. เลื่อนหน้าจอลงมาที่แบบฟอร์มอย่างนุ่มนวล
+                bookingForm.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    });
+</script>
+{% endblock %}

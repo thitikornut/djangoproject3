@@ -1,0 +1,84 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}ยินดีต้อนรับสู่ Happy Paws - รับดูแลสุนัขด้วยความรัก รับเฉพาะเจ้าของที่มีความตัวเล็กน่ารักเท่านั้น{% endblock %}
+
+{% block content %}
+<!-- Hero Section (ต้อนรับผู้เข้าชม) -->
+<section class="hero-section text-center">
+    <div class="container">
+        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill mb-3 fw-bold">
+            <i class="fa-solid fa-heart me-1"></i> บริการด้วยหัวใจ
+        </span>
+        <h1 class="display-4 fw-bold mb-3">บ้านหลังที่สองของน้องหมาที่คุณรัก เจ้าของตัวเล็กน่ารัก</h1>
+        <p class="lead mb-4 text-light">รับฝากเลี้ยง เดินเล่น และดูแลสุนัขแบบไม่ขังกรง บรรยากาศอบอุ่น ปลอดภัย 24 ชั่วโมง</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="#" class="btn btn-warning btn-lg fw-bold rounded-pill px-4 shadow">
+                <i class="fa-solid fa-calendar-check me-2"></i>จองคิวออนไลน์
+            </a>
+            <a href="#services" class="btn btn-outline-light btn-lg rounded-pill px-4">
+                ดูรายละเอียดบริการ
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3 จุดเด่นของร้าน -->
+<section id="services" class="py-5">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">ทำไมต้องเลือก Happy Paws?</h2>
+            <p class="text-muted">เราเข้าใจดีว่าน้องหมาคือสมาชิกสำคัญในครอบครัวของคุณ</p>
+        </div>
+
+        <div class="row g-4 text-center">
+            <!-- Feature 1 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4 rounded-4">
+                    <div class="card-body">
+                        <div class="feature-icon mb-3">
+                            <i class="fa-solid fa-house-chimney-window"></i>
+                        </div>
+                        <h4 class="card-title fw-bold mb-3">ไม่ขังกรง บรรยากาศบ้าน</h4>
+                        <p class="card-text text-muted">มีพื้นที่วิ่งเล่นกว้างขวาง น้องหมาไม่เครียด และได้รับการดูแลอย่างใกล้ชิดเหมือนอยู่บ้านตัวเอง</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4 rounded-4">
+                    <div class="card-body">
+                        <div class="feature-icon mb-3">
+                            <i class="fa-solid fa-camera-rotate"></i>
+                        </div>
+                        <h4 class="card-title fw-bold mb-3">อัปเดตรูป/คลิปทุกวัน</h4>
+                        <p class="card-text text-muted">ส่งภาพและคลิปวิดีโอผ่าน LINE ให้เจ้าของหายคิดถึงตลอดทั้งวัน สบายใจได้แน่นอน</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4 rounded-4">
+                    <div class="card-body">
+                        <div class="feature-icon mb-3">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <h4 class="card-title fw-bold mb-3">ดูแลปลอดภัย 24 ชม.</h4>
+                        <p class="card-text text-muted">มีพี่เลี้ยงคอยดูแลตลอดเวลา พร้อมระบบกล้องวงจรปิด และพี่เลี้ยงผ่านการอบรมปฐมพยาบาลสัตว์เลี้ยง</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Banner เชิญชวนลงทะเบียน -->
+<section class="bg-warning py-5 text-dark">
+    <div class="container text-center py-2">
+        <h3 class="fw-bold mb-3">พร้อมให้น้องหมามาสนุกกับเราแล้วหรือยัง?</h3>
+        <p class="mb-4 fs-5">ลงทะเบียนจองคิวล่วงหน้าวันนี้ เพื่อรับส่วนลดพิเศษสำหรับน้องหมาเข้าใช้บริการครั้งแรก!</p>
+        <a href="#" class="btn btn-dark btn-lg fw-bold rounded-pill px-5 shadow">สอบถามคิวว่าง</a>
+    </div>
+</section>
+{% endblock %}

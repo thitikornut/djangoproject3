@@ -1,0 +1,110 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}เกี่ยวกับเรา - Happy Paws Dog Sitting & Care{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<section class="bg-dark text-white py-5 text-center">
+    <div class="container py-3">
+        <h1 class="display-5 fw-bold text-warning">เกี่ยวกับเรา</h1>
+        <p class="lead text-light mb-0">รู้จักกับ Happy Paws บ้านหลังที่สองที่พร้อมดูแลสุนัขของคุณด้วยหัวใจ</p>
+    </div>
+</section>
+
+<!-- Our Story Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1000&q=80" 
+                         alt="Happy Paws Story" 
+                         class="img-fluid rounded-4 shadow">
+                    <div class="position-absolute bottom-0 end-0 bg-warning text-dark p-3 p-md-4 rounded-4 shadow m-3 d-none d-sm-block">
+                        <h4 class="fw-bold mb-0"><i class="fa-solid fa-heart me-2"></i>ดูแลด้วยรัก</h4>
+                        <small class="fw-medium">ประสบการณ์ดูแลสุนัขกว่า 5 ปี</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <span class="badge bg-warning text-dark px-3 py-2 rounded-pill mb-3 fw-bold">
+                    <i class="fa-solid fa-paw me-1"></i> เรื่องราวของเรา
+                </span>
+                <h2 class="fw-bold mb-3">จุดเริ่มต้นของ Happy Paws</h2>
+                <p class="text-muted leading-relaxed">
+                    Happy Paws ก่อตั้งขึ้นจากความรักและความเข้าใจในธรรมชาติของสุนัข เราทราบดีว่าเวลาที่เจ้าของต้องเดินทางไกลหรือติดภารกิจ การทิ้งน้องหมาไว้คนเดียวหรือการนำไปขังกรงอาจสร้างความเครียดให้กับพวกเขาได้
+                </p>
+                <p class="text-muted leading-relaxed">
+                    เราจึงตั้งใจสร้างสถานที่รับฝากเลี้ยงที่เป็นระบบ **Home-Style & No-Cage (ไม่ขังกรง)** เพื่อให้น้องหมาได้วิ่งเล่นอย่างอิสระ มีเพื่อนเล่น และได้รับการดูแลเอาใจใส่อย่างใกล้ชิดเหมือนอยู่บ้านตัวเอง
+                </p>
+                
+                <div class="row g-3 pt-2">
+                    <div class="col-6">
+                        <div class="p-3 bg-white rounded-3 border border-warning-subtle text-center">
+                            <h3 class="fw-bold text-warning mb-1">100%</h3>
+                            <small class="text-muted">ไม่ขังกรงตลอดวัน</small>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-3 bg-white rounded-3 border border-warning-subtle text-center">
+                            <h3 class="fw-bold text-warning mb-1">24/7</h3>
+                            <small class="text-muted">มีพี่เลี้ยงดูแลตลอดวัน</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Standards Section -->
+<section class="bg-light py-5 border-top border-bottom">
+    <div class="container py-3">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">มาตรฐานการบริการของเรา</h2>
+            <p class="text-muted">ความสะอาด ความปลอดภัย และสุขภาพจิตของสุนัขคือสิ่งที่เราใส่ใจที่สุด</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="bg-white p-4 rounded-4 shadow-sm h-100 text-center">
+                    <div class="text-warning fs-1 mb-3">
+                        <i class="fa-solid fa-shield-dog"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">คัดกรองวัคซีน 100%</h5>
+                    <p class="text-muted small mb-0">สุนัขทุกตัวที่เข้ามาใช้บริการจะต้องได้รับวัคซีนครบถ้วนและผ่านการหยดยากันเห็บเห็บเพื่อความปลอดภัยรวม</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-white p-4 rounded-4 shadow-sm h-100 text-center">
+                    <div class="text-warning fs-1 mb-3">
+                        <i class="fa-solid fa-pump-medical"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">ทำความสะอาดทุกวัน</h5>
+                    <p class="text-muted small mb-0">ใช้น้ำยาฆ่าเชื้อเกรดทางการแพทย์ที่ปลอดภัยต่อสัตว์เลี้ยงในการทำความสะอาดพื้นที่วิ่งเล่นและห้องนอนทุกวัน</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-white p-4 rounded-4 shadow-sm h-100 text-center">
+                    <div class="text-warning fs-1 mb-3">
+                        <i class="fa-solid fa-notes-medical"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">พี่เลี้ยงผ่านการอบรม</h5>
+                    <p class="text-muted small mb-0">ทีมงานทุกคนผ่านการอบรมพฤติกรรมสัตว์เลี้ยงและการปฐมพยาบาลเบื้องต้น พร้อมรับมือทุกสถานการณ์</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 text-center">
+    <div class="container">
+        <h3 class="fw-bold mb-3">อยากเข้ามาเยี่ยมชมสถานที่จริงก่อนใช่ไหม?</h3>
+        <p class="text-muted mb-4">ยินดีต้อนรับเจ้าของและน้องหมาเข้ามาชมบรรยากาศร้านได้ฟรี นัดหมายล่วงหน้าได้เลยครับ</p>
+        <a href="{% url 'contact' %}" class="btn btn-warning btn-lg fw-bold rounded-pill px-5 shadow">
+            <i class="fa-solid fa-calendar-check me-2"></i>นัดเวลาเข้าชมร้าน
+        </a>
+    </div>
+</section>
+{% endblock %}
